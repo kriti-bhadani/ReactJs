@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Filter Map</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Javascript">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <p id="candidates"></p>
+    <script>
+       let users=[
+           {"name":"Ram"},
+           {"name":"Shyam"},
+           {"name":"Arjun"},
+           {"name":"Bhim"},
+           {"name":"Shiv"},
+       ]
+        // map
+       let resultDetails=users.map(user=>{
+           user.marks=Math.random()*100;
+           return user;
+       })
+
+       console.log(resultDetails)
+
+     // filter above 60%
+       let candidateSelected=resultDetails.filter(user=>{
+           if(user.marks>60){
+               return user;
+           }
+       })
+       console.log(candidateSelected)
+
+     // reduce creating team
+     let members=candidateSelected.reduce((members,user)=>{
+         members.push(user);
+         return members;
+     },[]);
+     console.log(members)
+    </script>
+</body>
+
+</html>
